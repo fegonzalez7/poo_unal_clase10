@@ -16,19 +16,19 @@ El **polimorfismo** (literalmente significa "muchas formas") es un principio de 
  ```mermaid
 classDiagram
 class Figura {
-  + __init__(): void
+  + __init__()
   + area(): abstract
 }
 
 class Cuadrado {
   + lado: Float
-  + __init__(lado: Float): void
+  + __init__(lado: Float)
   + area(): Float
 }
 
 class Circulo {
   + radio: Float
-  + __init__(radio: Float): void
+  + __init__(radio: Float)
   + area(): Float
 }
 
