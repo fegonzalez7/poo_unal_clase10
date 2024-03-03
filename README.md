@@ -14,11 +14,26 @@ El **polimorfismo** (literalmente significa "muchas formas") es un principio de 
 **Ejemplo:** Figuras geométricas:
 
  ```mermaid
-graph LR
-  A[Figura] --> B{Cuadrado}
-  A --> C{Circulo}
-  B --> D{area(self)}
-  C --> D
+classDiagram
+class Figura {
+  + __init__(): void
+  + area(): abstract
+}
+
+class Cuadrado {
+  + lado: Float
+  + __init__(lado: Float): void
+  + area(): Float
+}
+
+class Circulo {
+  + radio: Float
+  + __init__(radio: Float): void
+  + area(): Float
+}
+
+Circulo <|-- Figura
+Cuadrado <|-- Figura
 ```
 
 ```python
@@ -59,11 +74,27 @@ En este ejemplo, la clase Figura es la clase base y define el método abstracto 
 **Ejemplo:** Métodos de pago:
 
 ```mermaid
-graph LR
-  A[Figura] --> B{Cuadrado}
-  A --> C{Circulo}
-  B --> D{area(self)}
-  C --> D
+classDiagram
+class MedioPago {
+  + __init__()
+  + pagar(monto: Float): abstract
+}
+
+class Tarjeta {
+  + numero: String
+  + cvv: Int
+  + __init__(numero: String, cvv: Int)
+  + pagar(monto: Float)
+}
+
+class Efectivo {
+  + monto_entregado: Float
+  + __init__(monto_entregado: Float)
+  + pagar(monto: Float)
+}
+
+Tarjeta <|-- MedioPago
+Efectivo <|-- MedioPago
 ```
 
 ```python
