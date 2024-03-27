@@ -1,10 +1,10 @@
 # Programación Orientada a Objetos - UNAL
 
-## Clase 10: Poliformismo
+## Clase 10: Polimorfismo
 
-### Qué es poliformismo?
+### Qué es polimorfismo?
 
-El **polimorfismo** (literalmente significa "muchas formas") es un principio de la programación orientada a objetos (POO) que permite que objetos de diferentes clases sean tratados como objetos de una clase común. Esto significa *que diferentes clases pueden definir métodos con el mismo nombre pero con implementaciones distintas*. El poliformismo se logra principalmente gracias a al *herencia*.
+El **polimorfismo** (literalmente significa "muchas formas") es un principio de la programación orientada a objetos (POO) que permite que objetos de diferentes clases sean tratados como objetos de una clase común. Esto significa *que diferentes clases pueden definir métodos con el mismo nombre pero con implementaciones distintas*. El polimorfismo se logra principalmente gracias a al *herencia*.
 
 **Utilidad**
  - **Extensibilidad:** Facilita la extensión del código al permitir *agregar nuevas funcionalidades* sin necesidad de modificar las clases existentes.
