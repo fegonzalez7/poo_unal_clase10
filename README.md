@@ -39,8 +39,8 @@ class Circulo {
   + calcular_area(): Float
 }
 
-Circulo <|-- Figura
-Cuadrado <|-- Figura
+Circulo --|> Figura
+Cuadrado --|> Figura
 ```
 
 ```python
@@ -100,8 +100,8 @@ class Efectivo {
   + pagar(monto: Float)
 }
 
-Tarjeta <|-- MedioPago
-Efectivo <|-- MedioPago
+Tarjeta --|> MedioPago
+Efectivo --|> MedioPago
 ```
 
 ```python
@@ -262,13 +262,13 @@ classDiagram
 
     Shape *-- Line 
     Shape *-- Point
-    Triangle <|-- Shape
-    Isosceles <|-- Triangle
-    Equilateral <|-- Triangle
-    Scalene <|-- Triangle
-    TriRectangle <|-- Triangle
-    Rectangle <|-- Shape
-    Square <|-- Rectangle
+    Triangle --|> Shape
+    Isosceles --|> Triangle
+    Equilateral --|> Triangle
+    Scalene --|> Triangle
+    TriRectangle --|> Triangle
+    Rectangle --|> Shape
+    Square --|> Rectangle
 ```
 
 Use Inheritance, Composition, Encapsulation and Polymorphism to define the classes. All attributes must have their respective setters and getters.
