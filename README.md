@@ -1,5 +1,12 @@
 # Programación Orientada a Objetos - UNAL
 
+# Tabla de Contenido
+
+- [Polimorfismo](#clase-10-polimorfismo)
+  - [Qué es polimorfismo?](#qué-es-polimorfismo)
+  - [Duck-typing](#duck-typing)
+- [Reto 4](#reto-4)
+
 ## Clase 10: Polimorfismo
 
 ### Qué es polimorfismo?
@@ -8,7 +15,7 @@ El **polimorfismo** (literalmente significa "muchas formas") es un principio de 
 
 **Utilidad**
  - **Extensibilidad:** Facilita la extensión del código al permitir *agregar nuevas funcionalidades* sin necesidad de modificar las clases existentes.
- - **Flexibilidad:** Al utilizar *interfaces* o clases base polimórficas, se puede cambiar la implementación concreta sin necesidad de alterar el código que utiliza estas abstracciones. Esto es crucial para mantener el código adaptable.
+ - **Flexibilidad:** Al utilizar *interfaces* o clases base polimórficas, se puede cambiar la implementación concreta sin necesidad de alterar el código que utiliza estas abstracciones. 
 
 
 **Ejemplo:** Figuras geométricas:
@@ -41,7 +48,7 @@ class Figura:
   def __init__(self):
     pass
 
-  def area(self):
+  def calcular_area(self):
     # Solo para ser estrictos, también se podría poner un pass
     raise NotImplementedError("Subclases deben implementar area()")
 
@@ -50,7 +57,7 @@ class Cuadrado(Figura):
     super().__init__()
     self.lado = lado
 
-  def area(self):
+  def calcular_area(self):
     return self.lado * self.lado
 
 class Circulo(Figura):
@@ -58,18 +65,18 @@ class Circulo(Figura):
     super().__init__()
     self.radio = radio
 
-  def area(self):
+  def calcular_area(self):
     return 3.14 * self.radio * self.radio
 
 
 figura1 = Cuadrado(5)
 figura2 = Circulo(3)
 
-print(f"El area del cuadrado es: {figura1.area()}")
-print(f"El area del circulo es: {figura2.area()}")
+print(f"El area del cuadrado es: {figura1.calcular_area()}")
+print(f"El area del circulo es: {figura2.calcular_area()}")
 ```
 
-En este ejemplo, la clase Figura es la clase base y define el método abstracto area(). Las clases Cuadrado y Circulo heredan de Figura e implementan su propio comportamiento para el método area(). Cuando llamamos al método area() en un objeto de cualquiera de las subclases, se ejecuta la implementación correspondiente a esa clase, mostrando el comportamiento polimórfico.
+En este ejemplo, la clase Figura es la clase base y define el método abstracto calcular_area(). Las clases Cuadrado y Circulo heredan de Figura e implementan su propio comportamiento para el método calcular_area(). Cuando llamamos al método calcular_area() en un objeto de cualquiera de las subclases, se ejecuta la implementación correspondiente a esa clase.
 
 **Ejemplo:** Métodos de pago:
 
@@ -133,7 +140,7 @@ pago1.pagar(50)
 pago2.pagar(75)
 ```
 
-En este ejemplo, la clase MedioPago define el método abstracto pagar(). Las clases Tarjeta y Efectivo heredan de MedioPago e implementan su propio comportamiento para pagar(). Al llamar a pagar() en un objeto de cualquiera de las subclases, se ejecuta la implementación adecuada, mostrando nuevamente el polimorfismo.
+En este ejemplo, la clase MedioPago define el método abstracto pagar(). Las clases Tarjeta y Efectivo heredan de MedioPago e implementan su propio comportamiento para pagar(). Al llamar a pagar() en un objeto de cualquiera de las subclases, se ejecuta la implementación adecuada.
 
 ### Duck-typing
 El *"Duck Typing"* es un paradigma de programación que se basa en la idea de que un objeto "es" lo que "hace". En otras palabras, si un objeto tiene los métodos y atributos necesarios para realizar una tarea, no importa de qué clase sea o cómo se haya implementado.
@@ -161,23 +168,23 @@ classDiagram
 
 ```python
 class AudioFile:
-    def __init__(self, filename):
-        self.filename = filename
+  def __init__(self, filename):
+    self.filename = filename
 
 class MP3File(AudioFile):
-    def play(self):
-        print(f"playing {self.filename} as mp3")
+  def play(self):
+    print(f"playing {self.filename} as mp3")
 
 class WavFile(AudioFile):
-    def play(self):
-        print(f"playing {self.filename} as wav")
+  def play(self):
+    print(f"playing {self.filename} as wav")
 
 class OggFile(AudioFile):
-    def play(self):
-        print(f"playing {self.filename} as ogg")
+  def play(self):
+    print(f"playing {self.filename} as ogg")
 
 def play_media(player):
-    player.play()
+  player.play()
 
 mp3_player = MP3File()
 ogg_player = OggFile()
@@ -185,6 +192,23 @@ ogg_player = OggFile()
 play_media(mp3_player)  # Playing MP3
 play_media(ogg_player)  # Playing OGG
 ```
+
+**Ventajas:**
+- Permite escribir funciones y métodos más genéricos
+- No es necesario que las clases compartan una jerarquía de herencia
+
+El *Duck Typing* en Python facilita el polimorfismo al centrarse en lo que los objetos pueden hacer en lugar de en lo que son.
+
+
+----
+### Info adicional
+
+- [What is polymorphism, what is it for, and how is it used? - General](https://stackoverflow.com/questions/1031273/what-is-polymorphism-what-is-it-for-and-how-is-it-used)
+- [Polymorphism in Python (With Examples)](https://medium.com/@codingcampus/polymorphism-in-python-with-examples-887e2d45327a)
+- [Advanced OOP — The SpaceShip and StarWars Saga](https://medium.com/@merwan01/fun-of-python-programming-for-teens-part-12-1d7eec968aa9)
+
+----
+
 
 **Ejercicio:**
 1. Create a superclass called Shape(), which is the base of the classes Reactangle() and Square(), define the methods compute_area and compute_perimeter in Shape() and then using polymorphism redefine the methods properly in Rectangle and in Square.
