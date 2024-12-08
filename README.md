@@ -24,19 +24,19 @@ El **polimorfismo** (literalmente significa "muchas formas") es un principio de 
 classDiagram
 class Figura {
   + __init__()
-  + area(): abstract
+  + calcular_area(): abstract
 }
 
 class Cuadrado {
   + lado: Float
   + __init__(lado: Float)
-  + area(): Float
+  + calcular_area(): Float
 }
 
 class Circulo {
   + radio: Float
   + __init__(radio: Float)
-  + area(): Float
+  + calcular_area(): Float
 }
 
 Circulo <|-- Figura
